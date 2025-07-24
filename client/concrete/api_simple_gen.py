@@ -1,6 +1,6 @@
 from typing import Generator, Dict, Optional, Literal, TypedDict, List, Any, TypeVar, Generic
 
-from client.api_base import ApiConcreteBase
+from client.api_client_base import ApiConcreteBase
 
 SYSTEM_PROMPT = (
     "あなたは親切なアシスタントです"
@@ -36,11 +36,11 @@ class SympleComparisonGrader(ApiConcreteBase):
 
 if __name__ == "__main__":
     """
-    python -m client.concrete.simple_generator
+    python -m client.concrete.api_simple_gen
     """
 
     import os
-    from model.openai_api_llm import OpenAiAPIChatClient
+    from model.api_llm_base import OpenAiAPIChatClient
 
     from dotenv import load_dotenv
 

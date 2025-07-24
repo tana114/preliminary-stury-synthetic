@@ -1,4 +1,3 @@
-import warnings
 import os
 
 from typing import Generator, Dict, Optional, Literal, TypedDict, List, Any
@@ -49,15 +48,13 @@ class OpenAiAPIChatClient:
         # Noneの値を削除
         params = {k: v for k, v in params.items() if v is not None}
 
-        # print(params)
-
         # <class 'openai.types.chat.chat_completion.ChatCompletion'>
         return self._client.chat.completions.create(**params)
 
 
 if __name__ == "__main__":
     """
-    python -m model.openai_api_llm
+    python -m model.api_llm_base
     """
     from dotenv import load_dotenv
 
