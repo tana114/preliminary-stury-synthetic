@@ -11,6 +11,7 @@ USER_PROMPT = (
     "{input_1} - {input_2} = ?"
 )
 
+
 class SympleComparisonGrader(ApiConcreteBase):
     def __init__(
             self,
@@ -23,7 +24,6 @@ class SympleComparisonGrader(ApiConcreteBase):
             input: Dict[Literal["input_1", "input_2"], str],
             **kwargs
     ):
-
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": USER_PROMPT.format(input_1=input["input_1"], input_2=input["input_2"])},
@@ -39,13 +39,11 @@ if __name__ == "__main__":
     python -m client.concrete.simple_generator
     """
 
-    ''' ChainDirector '''
-
-
     import os
     from model.openai_api_llm import OpenAiAPIChatClient
 
     from dotenv import load_dotenv
+
     load_dotenv()
 
     # api_key = "your_api_key_here"
@@ -69,7 +67,3 @@ if __name__ == "__main__":
     res = gen(input=inst)
 
     print(res)
-
-
-
-
